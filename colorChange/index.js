@@ -1,4 +1,5 @@
 let btn = document.getElementById("btn-color");
+let body = document.body;
 
 let hexArray = [
   "1",
@@ -24,13 +25,17 @@ function genNum() {
   return newNum;
 }
 
-function changeColor() {
+function selectHex() {
   let hexCode = "#";
   for (let i = 0; i < 6; i++) {
     hexCode += hexArray[genNum()];
   }
-  console.log(hexCode);
   return hexCode;
+}
+
+function changeColor() {
+  let hex = selectHex();
+  body.style.backgroundColor = hex;
 }
 
 btn.addEventListener("click", () => changeColor());
