@@ -1,5 +1,6 @@
 let btn = document.getElementById("btn-color");
 let body = document.body;
+let text = document.getElementById("text-color");
 
 let hexArray = [
   "1",
@@ -32,10 +33,18 @@ function selectHex() {
   }
   return hexCode;
 }
-
-function changeColor() {
-  let hex = selectHex();
-  body.style.backgroundColor = hex;
+function changeText(hexValue) {
+  text.innerHTML = "This is " + hexValue;
 }
 
-btn.addEventListener("click", () => changeColor());
+function changeColor(hexValue) {
+  body.style.backgroundColor = hexValue;
+}
+function change() {
+  let hex = selectHex();
+  changeColor(hex);
+  changeText(hex);
+}
+
+change();
+btn.addEventListener("click", () => change());
